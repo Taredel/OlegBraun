@@ -3,3 +3,9 @@ out
 .idea
 *.iml
 target
+src/test/java/tmp
+_windows
+codestyles
+debugger.xml
+filetypes.xml
+mavenVersion.xml

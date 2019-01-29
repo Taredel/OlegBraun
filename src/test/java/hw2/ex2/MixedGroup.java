@@ -15,6 +15,7 @@ import static org.testng.Assert.assertTrue;
 
 public class MixedGroup {
 
+    // TODO Take a look on IDEA warning
     private WebDriver driver;
 
     @BeforeClass(alwaysRun = true)
@@ -27,6 +28,7 @@ public class MixedGroup {
         driver.close();
     }
 
+    // TODO Could you please rename tests methods in according to groups.
     @Test(groups = {"regression"})
     public void mainPageTest1() {
 

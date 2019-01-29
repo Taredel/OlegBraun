@@ -13,6 +13,7 @@ import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertNotNull;
 import static org.testng.Assert.assertTrue;
 
+// TODO Code convention
 public class TestWithAnnotations {
 
     private WebDriver driver;

@@ -11,13 +11,21 @@ import org.testng.asserts.SoftAssert;
 
 import static java.lang.System.setProperty;
 
+/**
+ * This class is testing web page using class SoftAssert with URL "https://epam.github.io/JDI/" for capability to log in with certain ID-password
+ * and also checking that some web elements are displayed and has a proper values.
+ *
+ * @author Oleg Braun
+ * @version 1.2 29 Jan 2019
+ */
+
 public class MainPageTestUsingSoftAssert {
     private WebDriver driver;
     private SoftAssert softAssertion = new SoftAssert();
 
     @BeforeClass
     public void beforeClass() {
-        setProperty("webdriver.chrome.driver","src\\main\\resources\\chromedriver.exe");
+        setProperty("webdriver.chrome.driver", "src\\main\\resources\\chromedriver.exe");
     }
 
     @BeforeMethod
@@ -57,26 +65,26 @@ public class MainPageTestUsingSoftAssert {
         softAssertion.assertEquals(driver.findElements(By.cssSelector("ul.m-l8 > li")).size(), 4); //assert number of header sections
 
         softAssertion.assertTrue(driver.findElement(By.cssSelector("ul.m-l8 > li:nth-child(1) > a")).isDisplayed());
-        softAssertion.assertEquals(driver.findElement(By.cssSelector("ul.m-l8 > li:nth-child(1) > a")).getText(), "HOME" );
+        softAssertion.assertEquals(driver.findElement(By.cssSelector("ul.m-l8 > li:nth-child(1) > a")).getText(), "HOME");
 
         softAssertion.assertTrue(driver.findElement(By.cssSelector("ul.m-l8 > li:nth-child(2) > a")).isDisplayed());
-        softAssertion.assertEquals(driver.findElement(By.cssSelector("ul.m-l8 > li:nth-child(2) > a")).getText(), "CONTACT FORM" );
+        softAssertion.assertEquals(driver.findElement(By.cssSelector("ul.m-l8 > li:nth-child(2) > a")).getText(), "CONTACT FORM");
 
         softAssertion.assertTrue(driver.findElement(By.cssSelector("ul.m-l8 > li:nth-child(3) > a")).isDisplayed());
-        softAssertion.assertEquals(driver.findElement(By.cssSelector("ul.m-l8 > li:nth-child(3) > a")).getText(), "SERVICE" );
+        softAssertion.assertEquals(driver.findElement(By.cssSelector("ul.m-l8 > li:nth-child(3) > a")).getText(), "SERVICE");
 
         softAssertion.assertTrue(driver.findElement(By.cssSelector("ul.m-l8 > li:nth-child(4) > a")).isDisplayed());
-        softAssertion.assertEquals(driver.findElement(By.cssSelector("ul.m-l8 > li:nth-child(4) > a")).getText(), "METALS & COLORS" );
+        softAssertion.assertEquals(driver.findElement(By.cssSelector("ul.m-l8 > li:nth-child(4) > a")).getText(), "METALS & COLORS");
 
         //7 assert that there are 4 images on the Index page and they are displayed
-        softAssertion.assertEquals(driver.findElements(By.cssSelector("div.main-content > div > div")).size(),4);
+        softAssertion.assertEquals(driver.findElements(By.cssSelector("div.main-content > div > div")).size(), 4);
         softAssertion.assertTrue(driver.findElement(By.cssSelector("span.icon-practise")).isDisplayed());
         softAssertion.assertTrue(driver.findElement(By.cssSelector("span.icon-custom")).isDisplayed());
         softAssertion.assertTrue(driver.findElement(By.cssSelector("span.icon-multi")).isDisplayed());
         softAssertion.assertTrue(driver.findElement(By.cssSelector("span.icon-base")).isDisplayed());
 
         //8 assert that there is text under of each icon on the Index page and each text is proper
-        softAssertion.assertEquals(driver.findElements(By.cssSelector("span.benefit-txt")).size(),4);
+        softAssertion.assertEquals(driver.findElements(By.cssSelector("span.benefit-txt")).size(), 4);
 
         softAssertion.assertTrue(driver.findElement(By.cssSelector("div.main-content > div > div:nth-child(1)")).isDisplayed());
         softAssertion.assertEquals(driver.findElement(By.cssSelector("div.main-content > div > div:nth-child(1)")).getText(),
@@ -96,12 +104,12 @@ public class MainPageTestUsingSoftAssert {
 
         //9 assert text of the main header
         softAssertion.assertEquals(driver.findElement(By.cssSelector("[name='main-title']")).getText().trim(),
-                "EPAM FRAMEWORK WISHES…" );
+                "EPAM FRAMEWORK WISHES…");
         softAssertion.assertEquals(driver.findElement(By.cssSelector("[name='jdi-text']")).getText().trim(),
                 "LOREM IPSUM DOLOR SIT AMET, CONSECTETUR ADIPISICING ELIT, SED DO EIUSMOD TEMPOR INCIDIDUNT " +
                         "UT LABORE ET DOLORE MAGNA ALIQUA. UT ENIM AD MINIM VENIAM, QUIS NOSTRUD EXERCITATION " +
                         "ULLAMCO LABORIS NISI UT ALIQUIP EX EA COMMODO CONSEQUAT DUIS AUTE IRURE DOLOR " +
-                        "IN REPREHENDERIT IN VOLUPTATE VELIT ESSE CILLUM DOLORE EU FUGIAT NULLA PARIATUR." );
+                        "IN REPREHENDERIT IN VOLUPTATE VELIT ESSE CILLUM DOLORE EU FUGIAT NULLA PARIATUR.");
 
         //10 assert that there is the iframe in the main page
         softAssertion.assertTrue(driver.findElement(By.cssSelector("[id='iframe']")).isDisplayed());
@@ -114,13 +122,13 @@ public class MainPageTestUsingSoftAssert {
         driver.switchTo().parentFrame();
 
         //13 assert a text of the sub header
-        softAssertion.assertEquals(driver.findElement(By.cssSelector("[class='text-center']")).getText(),"JDI GITHUB" );
+        softAssertion.assertEquals(driver.findElement(By.cssSelector("[class='text-center']")).getText(), "JDI GITHUB");
 
         //14 assert that JDI GITHUB is a link and has a proper URL
         softAssertion.assertNotNull(driver.findElement(By.cssSelector("div.main-content > h3:nth-child(3) > a"))
                 .getAttribute("href"));
         softAssertion.assertEquals(driver.findElement(By.cssSelector("div.main-content > h3:nth-child(3) > a"))
-                        .getAttribute("href"),"https://github.com/epam/JDI" );
+                .getAttribute("href"), "https://github.com/epam/JDI");
 
         //15 assert that there is Left Section
         softAssertion.assertTrue(driver.findElement(By.cssSelector("[id='mCSB_1_container']")).isDisplayed());

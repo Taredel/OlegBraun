@@ -9,15 +9,21 @@ import static java.lang.System.setProperty;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
+/**
+ * This class is testing web page with URL "https://epam.github.io/JDI/" using @DataProvider with parallel settings.
+ *
+ * @author Oleg Braun
+ * @version 1.2 29 Jan 2019
+ */
+
 // TODO Same story about code convention.
 public class MainPageTest {
 
-    //private WebDriver driver;
     private WebDriver driver;
 
-    @BeforeClass
-    public void beforeClass() {
-        setProperty("webdriver.chrome.driver","src\\main\\resources\\chromedriver.exe");
+    @BeforeSuite
+    public void beforeSuite() {
+        setProperty("webdriver.chrome.driver", "src\\main\\resources\\chromedriver.exe");
     }
 
     @BeforeTest
@@ -29,16 +35,16 @@ public class MainPageTest {
 
     @AfterTest
     public void afterTest() {
-            driver.close();
+        driver.close();
     }
 
-    @DataProvider(name="dp", parallel = true)
+    @DataProvider(name = "dp", parallel = true)
     private Object[][] dataProviderWithProperTexts() {
-        return new String[][] {
-                {"div.main-content > div > div:nth-child(1)","To include good practices\n" + "and ideas from successful\n" + "EPAM project"},
-                {"div.main-content > div > div:nth-child(2)","To be flexible and\n" + "customizable"},
-                {"div.main-content > div > div:nth-child(3)","To be multiplatform"},
-                {"div.main-content > div > div:nth-child(4)","Already have good base\n" + "(about 20 internal and\n" + "some external projects),\n" + "wish to get more…"}
+        return new String[][]{
+                {"div.main-content > div > div:nth-child(1)", "To include good practices\n" + "and ideas from successful\n" + "EPAM project"},
+                {"div.main-content > div > div:nth-child(2)", "To be flexible and\n" + "customizable"},
+                {"div.main-content > div > div:nth-child(3)", "To be multiplatform"},
+                {"div.main-content > div > div:nth-child(4)", "Already have good base\n" + "(about 20 internal and\n" + "some external projects),\n" + "wish to get more…"}
         };
     }
 

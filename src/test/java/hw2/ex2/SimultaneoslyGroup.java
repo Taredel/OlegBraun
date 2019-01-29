@@ -13,22 +13,25 @@ import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertNotNull;
 import static org.testng.Assert.assertTrue;
 
-public class SimultaneoslyGroup {
+/**
+ * This class is testing web page with URL "https://epam.github.io/JDI/". There are three exactly same test methods
+ * spllited in different group using @Test parameter "groups" but at this time each test method is part of 2 groups.
+ * Tests run from hw2smoke.xml or from hw2regression.xml
+ * and work parallel.
+ *
+ * @author Oleg Braun
+ * @version 1.2 29 Jan 2019
+ */
 
-    private WebDriver driver;
+public class SimultaneoslyGroup {
 
     @BeforeClass(alwaysRun = true)
     public void beforeClass() {
-        setProperty("webdriver.chrome.driver","src\\main\\resources\\chromedriver.exe");
-    }
-
-    @AfterMethod
-    public void afterMethod() {
-        driver.close();
+        setProperty("webdriver.chrome.driver", "src\\main\\resources\\chromedriver.exe");
     }
 
     @Test(groups = {"smoke", "regression"})
-    public void mainPageTest1() {
+    public void mainPageTestSmokeRegressionFirst() {
 
         //creating new session of WebDriver
         WebDriver driver = new ChromeDriver();
@@ -59,26 +62,26 @@ public class SimultaneoslyGroup {
         assertEquals(driver.findElements(By.cssSelector("ul.m-l8 > li")).size(), 4); //assert number of header sections
 
         assertTrue(driver.findElement(By.cssSelector("ul.m-l8 > li:nth-child(1) > a")).isDisplayed());
-        assertEquals(driver.findElement(By.cssSelector("ul.m-l8 > li:nth-child(1) > a")).getText(), "HOME" );
+        assertEquals(driver.findElement(By.cssSelector("ul.m-l8 > li:nth-child(1) > a")).getText(), "HOME");
 
         assertTrue(driver.findElement(By.cssSelector("ul.m-l8 > li:nth-child(2) > a")).isDisplayed());
-        assertEquals(driver.findElement(By.cssSelector("ul.m-l8 > li:nth-child(2) > a")).getText(), "CONTACT FORM" );
+        assertEquals(driver.findElement(By.cssSelector("ul.m-l8 > li:nth-child(2) > a")).getText(), "CONTACT FORM");
 
         assertTrue(driver.findElement(By.cssSelector("ul.m-l8 > li:nth-child(3) > a")).isDisplayed());
-        assertEquals(driver.findElement(By.cssSelector("ul.m-l8 > li:nth-child(3) > a")).getText(), "SERVICE" );
+        assertEquals(driver.findElement(By.cssSelector("ul.m-l8 > li:nth-child(3) > a")).getText(), "SERVICE");
 
         assertTrue(driver.findElement(By.cssSelector("ul.m-l8 > li:nth-child(4) > a")).isDisplayed());
-        assertEquals(driver.findElement(By.cssSelector("ul.m-l8 > li:nth-child(4) > a")).getText(), "METALS & COLORS" );
+        assertEquals(driver.findElement(By.cssSelector("ul.m-l8 > li:nth-child(4) > a")).getText(), "METALS & COLORS");
 
         //7 assert that there are 4 images on the Index page and they are displayed
-        assertEquals(driver.findElements(By.cssSelector("div.main-content > div > div")).size(),4);
+        assertEquals(driver.findElements(By.cssSelector("div.main-content > div > div")).size(), 4);
         assertTrue(driver.findElement(By.cssSelector("span.icon-practise")).isDisplayed());
         assertTrue(driver.findElement(By.cssSelector("span.icon-custom")).isDisplayed());
         assertTrue(driver.findElement(By.cssSelector("span.icon-multi")).isDisplayed());
         assertTrue(driver.findElement(By.cssSelector("span.icon-base")).isDisplayed());
 
         //8 assert that there is text under of each icon on the Index page and each text is proper
-        assertEquals(driver.findElements(By.cssSelector("span.benefit-txt")).size(),4);
+        assertEquals(driver.findElements(By.cssSelector("span.benefit-txt")).size(), 4);
         List<WebElement> elements = driver.findElements(By.className("benefit-txt"));
         System.out.println(elements);
 
@@ -99,12 +102,12 @@ public class SimultaneoslyGroup {
                 "Already have good base\n" + "(about 20 internal and\n" + "some external projects),\n" + "wish to get more…");
 
         //9 assert text of the main header
-        assertEquals(driver.findElement(By.cssSelector("[name='main-title']")).getText().trim(), "EPAM FRAMEWORK WISHES…" );
+        assertEquals(driver.findElement(By.cssSelector("[name='main-title']")).getText().trim(), "EPAM FRAMEWORK WISHES…");
         assertEquals(driver.findElement(By.cssSelector("[name='jdi-text']")).getText().trim(),
                 "LOREM IPSUM DOLOR SIT AMET, CONSECTETUR ADIPISICING ELIT, SED DO EIUSMOD TEMPOR INCIDIDUNT " +
                         "UT LABORE ET DOLORE MAGNA ALIQUA. UT ENIM AD MINIM VENIAM, QUIS NOSTRUD EXERCITATION " +
                         "ULLAMCO LABORIS NISI UT ALIQUIP EX EA COMMODO CONSEQUAT DUIS AUTE IRURE DOLOR " +
-                        "IN REPREHENDERIT IN VOLUPTATE VELIT ESSE CILLUM DOLORE EU FUGIAT NULLA PARIATUR." );
+                        "IN REPREHENDERIT IN VOLUPTATE VELIT ESSE CILLUM DOLORE EU FUGIAT NULLA PARIATUR.");
 
         //10 assert that there is the iframe in the main page
         assertTrue(driver.findElement(By.cssSelector("[id='iframe']")).isDisplayed());
@@ -117,12 +120,12 @@ public class SimultaneoslyGroup {
         driver.switchTo().parentFrame();
 
         //13 assert a text of the sub header
-        assertEquals(driver.findElement(By.cssSelector("[class='text-center']")).getText(),"JDI GITHUB" );
+        assertEquals(driver.findElement(By.cssSelector("[class='text-center']")).getText(), "JDI GITHUB");
 
         //14 assert that JDI GITHUB is a link and has a proper URL
         assertNotNull(driver.findElement(By.cssSelector("div.main-content > h3:nth-child(3) > a")).getAttribute("href"));
         assertEquals(driver.findElement(By.cssSelector("div.main-content > h3:nth-child(3) > a")).getAttribute("href"),
-                "https://github.com/epam/JDI" );
+                "https://github.com/epam/JDI");
 
         //15 assert that there is Left Section
         assertTrue(driver.findElement(By.cssSelector("[id='mCSB_1_container']")).isDisplayed());
@@ -134,7 +137,7 @@ public class SimultaneoslyGroup {
     }
 
     @Test(groups = {"smoke", "regression"})
-    public void mainPageTest2() {
+    public void mainPageTestSmokeRegressionGroupSecond() {
 
         //creating new session of WebDriver
         WebDriver driver = new ChromeDriver();
@@ -168,26 +171,26 @@ public class SimultaneoslyGroup {
         assertEquals(driver.findElements(By.cssSelector("ul.m-l8 > li")).size(), 4); //assert number of header sections
 
         assertTrue(driver.findElement(By.cssSelector("ul.m-l8 > li:nth-child(1) > a")).isDisplayed());
-        assertEquals(driver.findElement(By.cssSelector("ul.m-l8 > li:nth-child(1) > a")).getText(), "HOME" );
+        assertEquals(driver.findElement(By.cssSelector("ul.m-l8 > li:nth-child(1) > a")).getText(), "HOME");
 
         assertTrue(driver.findElement(By.cssSelector("ul.m-l8 > li:nth-child(2) > a")).isDisplayed());
-        assertEquals(driver.findElement(By.cssSelector("ul.m-l8 > li:nth-child(2) > a")).getText(), "CONTACT FORM" );
+        assertEquals(driver.findElement(By.cssSelector("ul.m-l8 > li:nth-child(2) > a")).getText(), "CONTACT FORM");
 
         assertTrue(driver.findElement(By.cssSelector("ul.m-l8 > li:nth-child(3) > a")).isDisplayed());
-        assertEquals(driver.findElement(By.cssSelector("ul.m-l8 > li:nth-child(3) > a")).getText(), "SERVICE" );
+        assertEquals(driver.findElement(By.cssSelector("ul.m-l8 > li:nth-child(3) > a")).getText(), "SERVICE");
 
         assertTrue(driver.findElement(By.cssSelector("ul.m-l8 > li:nth-child(4) > a")).isDisplayed());
-        assertEquals(driver.findElement(By.cssSelector("ul.m-l8 > li:nth-child(4) > a")).getText(), "METALS & COLORS" );
+        assertEquals(driver.findElement(By.cssSelector("ul.m-l8 > li:nth-child(4) > a")).getText(), "METALS & COLORS");
 
         //7 assert that there are 4 images on the Index page and they are displayed
-        assertEquals(driver.findElements(By.cssSelector("div.main-content > div > div")).size(),4);
+        assertEquals(driver.findElements(By.cssSelector("div.main-content > div > div")).size(), 4);
         assertTrue(driver.findElement(By.cssSelector("span.icon-practise")).isDisplayed());
         assertTrue(driver.findElement(By.cssSelector("span.icon-custom")).isDisplayed());
         assertTrue(driver.findElement(By.cssSelector("span.icon-multi")).isDisplayed());
         assertTrue(driver.findElement(By.cssSelector("span.icon-base")).isDisplayed());
 
         //8 assert that there is text under of each icon on the Index page and each text is proper
-        assertEquals(driver.findElements(By.cssSelector("span.benefit-txt")).size(),4);
+        assertEquals(driver.findElements(By.cssSelector("span.benefit-txt")).size(), 4);
         List<WebElement> elements = driver.findElements(By.className("benefit-txt"));
         System.out.println(elements);
 
@@ -208,12 +211,12 @@ public class SimultaneoslyGroup {
                 "Already have good base\n" + "(about 20 internal and\n" + "some external projects),\n" + "wish to get more…");
 
         //9 assert text of the main header
-        assertEquals(driver.findElement(By.cssSelector("[name='main-title']")).getText().trim(), "EPAM FRAMEWORK WISHES…" );
+        assertEquals(driver.findElement(By.cssSelector("[name='main-title']")).getText().trim(), "EPAM FRAMEWORK WISHES…");
         assertEquals(driver.findElement(By.cssSelector("[name='jdi-text']")).getText().trim(),
                 "LOREM IPSUM DOLOR SIT AMET, CONSECTETUR ADIPISICING ELIT, SED DO EIUSMOD TEMPOR INCIDIDUNT " +
                         "UT LABORE ET DOLORE MAGNA ALIQUA. UT ENIM AD MINIM VENIAM, QUIS NOSTRUD EXERCITATION " +
                         "ULLAMCO LABORIS NISI UT ALIQUIP EX EA COMMODO CONSEQUAT DUIS AUTE IRURE DOLOR " +
-                        "IN REPREHENDERIT IN VOLUPTATE VELIT ESSE CILLUM DOLORE EU FUGIAT NULLA PARIATUR." );
+                        "IN REPREHENDERIT IN VOLUPTATE VELIT ESSE CILLUM DOLORE EU FUGIAT NULLA PARIATUR.");
 
         //10 assert that there is the iframe in the main page
         assertTrue(driver.findElement(By.cssSelector("[id='iframe']")).isDisplayed());
@@ -226,12 +229,12 @@ public class SimultaneoslyGroup {
         driver.switchTo().parentFrame();
 
         //13 assert a text of the sub header
-        assertEquals(driver.findElement(By.cssSelector("[class='text-center']")).getText(),"JDI GITHUB" );
+        assertEquals(driver.findElement(By.cssSelector("[class='text-center']")).getText(), "JDI GITHUB");
 
         //14 assert that JDI GITHUB is a link and has a proper URL
         assertNotNull(driver.findElement(By.cssSelector("div.main-content > h3:nth-child(3) > a")).getAttribute("href"));
         assertEquals(driver.findElement(By.cssSelector("div.main-content > h3:nth-child(3) > a")).getAttribute("href"),
-                "https://github.com/epam/JDI" );
+                "https://github.com/epam/JDI");
 
         //15 assert that there is Left Section
         assertTrue(driver.findElement(By.cssSelector("[id='mCSB_1_container']")).isDisplayed());
@@ -243,7 +246,7 @@ public class SimultaneoslyGroup {
     }
 
     @Test(groups = {"regression", "smoke"})
-    public void mainPageTest3() {
+    public void mainPageTestRegressionSmokeGroup() {
 
         //creating new session of WebDriver
         WebDriver driver = new ChromeDriver();
@@ -274,26 +277,26 @@ public class SimultaneoslyGroup {
         assertEquals(driver.findElements(By.cssSelector("ul.m-l8 > li")).size(), 4); //assert number of header sections
 
         assertTrue(driver.findElement(By.cssSelector("ul.m-l8 > li:nth-child(1) > a")).isDisplayed());
-        assertEquals(driver.findElement(By.cssSelector("ul.m-l8 > li:nth-child(1) > a")).getText(), "HOME" );
+        assertEquals(driver.findElement(By.cssSelector("ul.m-l8 > li:nth-child(1) > a")).getText(), "HOME");
 
         assertTrue(driver.findElement(By.cssSelector("ul.m-l8 > li:nth-child(2) > a")).isDisplayed());
-        assertEquals(driver.findElement(By.cssSelector("ul.m-l8 > li:nth-child(2) > a")).getText(), "CONTACT FORM" );
+        assertEquals(driver.findElement(By.cssSelector("ul.m-l8 > li:nth-child(2) > a")).getText(), "CONTACT FORM");
 
         assertTrue(driver.findElement(By.cssSelector("ul.m-l8 > li:nth-child(3) > a")).isDisplayed());
-        assertEquals(driver.findElement(By.cssSelector("ul.m-l8 > li:nth-child(3) > a")).getText(), "SERVICE" );
+        assertEquals(driver.findElement(By.cssSelector("ul.m-l8 > li:nth-child(3) > a")).getText(), "SERVICE");
 
         assertTrue(driver.findElement(By.cssSelector("ul.m-l8 > li:nth-child(4) > a")).isDisplayed());
-        assertEquals(driver.findElement(By.cssSelector("ul.m-l8 > li:nth-child(4) > a")).getText(), "METALS & COLORS" );
+        assertEquals(driver.findElement(By.cssSelector("ul.m-l8 > li:nth-child(4) > a")).getText(), "METALS & COLORS");
 
         //7 assert that there are 4 images on the Index page and they are displayed
-        assertEquals(driver.findElements(By.cssSelector("div.main-content > div > div")).size(),4);
+        assertEquals(driver.findElements(By.cssSelector("div.main-content > div > div")).size(), 4);
         assertTrue(driver.findElement(By.cssSelector("span.icon-practise")).isDisplayed());
         assertTrue(driver.findElement(By.cssSelector("span.icon-custom")).isDisplayed());
         assertTrue(driver.findElement(By.cssSelector("span.icon-multi")).isDisplayed());
         assertTrue(driver.findElement(By.cssSelector("span.icon-base")).isDisplayed());
 
         //8 assert that there is text under of each icon on the Index page and each text is proper
-        assertEquals(driver.findElements(By.cssSelector("span.benefit-txt")).size(),4);
+        assertEquals(driver.findElements(By.cssSelector("span.benefit-txt")).size(), 4);
         List<WebElement> elements = driver.findElements(By.className("benefit-txt"));
         System.out.println(elements);
 
@@ -314,12 +317,12 @@ public class SimultaneoslyGroup {
                 "Already have good base\n" + "(about 20 internal and\n" + "some external projects),\n" + "wish to get more…");
 
         //9 assert text of the main header
-        assertEquals(driver.findElement(By.cssSelector("[name='main-title']")).getText().trim(), "EPAM FRAMEWORK WISHES…" );
+        assertEquals(driver.findElement(By.cssSelector("[name='main-title']")).getText().trim(), "EPAM FRAMEWORK WISHES…");
         assertEquals(driver.findElement(By.cssSelector("[name='jdi-text']")).getText().trim(),
                 "LOREM IPSUM DOLOR SIT AMET, CONSECTETUR ADIPISICING ELIT, SED DO EIUSMOD TEMPOR INCIDIDUNT " +
                         "UT LABORE ET DOLORE MAGNA ALIQUA. UT ENIM AD MINIM VENIAM, QUIS NOSTRUD EXERCITATION " +
                         "ULLAMCO LABORIS NISI UT ALIQUIP EX EA COMMODO CONSEQUAT DUIS AUTE IRURE DOLOR " +
-                        "IN REPREHENDERIT IN VOLUPTATE VELIT ESSE CILLUM DOLORE EU FUGIAT NULLA PARIATUR." );
+                        "IN REPREHENDERIT IN VOLUPTATE VELIT ESSE CILLUM DOLORE EU FUGIAT NULLA PARIATUR.");
 
         //10 assert that there is the iframe in the main page
         assertTrue(driver.findElement(By.cssSelector("[id='iframe']")).isDisplayed());
@@ -332,12 +335,12 @@ public class SimultaneoslyGroup {
         driver.switchTo().parentFrame();
 
         //13 assert a text of the sub header
-        assertEquals(driver.findElement(By.cssSelector("[class='text-center']")).getText(),"JDI GITHUB" );
+        assertEquals(driver.findElement(By.cssSelector("[class='text-center']")).getText(), "JDI GITHUB");
 
         //14 assert that JDI GITHUB is a link and has a proper URL
         assertNotNull(driver.findElement(By.cssSelector("div.main-content > h3:nth-child(3) > a")).getAttribute("href"));
         assertEquals(driver.findElement(By.cssSelector("div.main-content > h3:nth-child(3) > a")).getAttribute("href"),
-                "https://github.com/epam/JDI" );
+                "https://github.com/epam/JDI");
 
         //15 assert that there is Left Section
         assertTrue(driver.findElement(By.cssSelector("[id='mCSB_1_container']")).isDisplayed());

@@ -10,6 +10,7 @@ import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertNotNull;
 import static org.testng.Assert.assertTrue;
 
+// TODO Pay attention on code convention, reformat this via IDEA.
 public class MainPageTest {
 
     private WebDriver driver;

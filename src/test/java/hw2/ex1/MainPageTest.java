@@ -9,6 +9,7 @@ import static java.lang.System.setProperty;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
+// TODO Same story about code convention.
 public class MainPageTest {
 
     //private WebDriver driver;

@@ -19,6 +19,7 @@ import static com.codeborne.selenide.Selenide.page;
 
 public class SelenideDatesPageTest extends SelenideBase {
 
+    // TODO This is not an indexPage
     private SelenideDatesIndexPage indexPage;
 
     @BeforeMethod

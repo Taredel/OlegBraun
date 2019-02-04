@@ -29,6 +29,8 @@ public enum HomePageData {
         this.value = value;
     }
 
+    // TODO You can split your master-enum in several enums
+    // TODO in order to avoid kind of this methods
     public static List<String> getHeaderSectionText() {
         List<String> headerSection = new ArrayList<>();
         headerSection.add(HEADER_SECTION_TITLE_1.value);
@@ -46,6 +48,7 @@ public enum HomePageData {
         textsUnderImages.add(TEXT_UNDER_IMAGE_4.value);
         return textsUnderImages;
     }
+    // !TODO
 
     @Override
     public String toString() {

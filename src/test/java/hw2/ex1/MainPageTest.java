@@ -16,7 +16,6 @@ import static org.testng.Assert.assertTrue;
  * @version 1.2 29 Jan 2019
  */
 
-// TODO Same story about code convention.
 public class MainPageTest {
 
     private WebDriver driver;

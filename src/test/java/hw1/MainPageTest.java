@@ -22,7 +22,6 @@ import static org.testng.Assert.assertTrue;
  * @version 1.2 29 Jan 2019
  */
 
-// TODO Pay attention on code convention, reformat this via IDEA.
 public class MainPageTest {
 
     private WebDriver driver;

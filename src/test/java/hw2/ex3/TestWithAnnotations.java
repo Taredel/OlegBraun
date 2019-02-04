@@ -20,7 +20,6 @@ import static org.testng.Assert.assertTrue;
  * @version 1.2 29 Jan 2019
  */
 
-// TODO Code convention
 public class TestWithAnnotations {
 
     private WebDriver driver;

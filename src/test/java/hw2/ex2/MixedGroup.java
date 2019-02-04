@@ -24,14 +24,11 @@ import static org.testng.Assert.assertTrue;
 
 public class MixedGroup {
 
-    // TODO Take a look on IDEA warning
-
     @BeforeClass(alwaysRun = true)
     public void beforeClass() {
         setProperty("webdriver.chrome.driver", "src\\main\\resources\\chromedriver.exe");
     }
 
-    // TODO Could you please rename tests methods in according to groups.
     @Test(groups = {"regression"})
     public void mainPageTestRegressionGroupFirst() {
 

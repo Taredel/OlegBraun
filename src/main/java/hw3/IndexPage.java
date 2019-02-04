@@ -17,10 +17,6 @@ public class IndexPage {
 
     private WebDriver driver;
 
-    public IndexPage(WebDriver driver) {
-        this.driver = driver;
-    }
-
     @FindBy(css = "[id='user-icon']")
     private WebElement loginIcon;
 
@@ -60,6 +56,7 @@ public class IndexPage {
     @FindBy(css = "[class='text-center']")
     private WebElement subHeaderText;
 
+    // TODO This locator should be simplified (4 letters at maximum)
     @FindBy(css = "div.main-content > h3:nth-child(3) > a")
     private WebElement gdiGithub;
 
@@ -68,6 +65,10 @@ public class IndexPage {
 
     @FindBy(css = "[class='footer-bg']")
     private WebElement footer;
+
+    public IndexPage(WebDriver driver) {
+        this.driver = driver;
+    }
 
     public void open(HomePageData url) {
         driver.get(url.toString());
@@ -89,6 +90,7 @@ public class IndexPage {
         assertEquals(usernameField.getText(), user.getUsername());
     }
 
+    // TODO This method should be parameterized by expected list of data
     public void checkHeaderSection() {
         assertEquals(headerSection.size(), 4);
         for (int i = 0; i < headerSection.size(); i++) {
@@ -104,6 +106,7 @@ public class IndexPage {
         }
     }
 
+    // TODO This method should be parameterized by expected list of data
     public void checkTextUnderImages() {
         assertEquals(texts.size(), 4);
         for (int i = 0; i < texts.size(); i++) {

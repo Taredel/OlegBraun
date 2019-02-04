@@ -1,6 +1,8 @@
 package hw3;
 
+import hw3.enums.HeaderSection;
 import hw3.enums.HomePageData;
+import hw3.enums.TextsUnderImages;
 import hw3.enums.Users;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -10,6 +12,8 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import static hw3.enums.HomePageData.*;
+import static hw3.enums.Users.PETER;
 import static java.lang.System.setProperty;
 
 public class PageObjectDesignTest {
@@ -39,31 +43,31 @@ public class PageObjectDesignTest {
 
         // TODO This test can be simplified by static imports
         //1 open site by URL
-        indexPage.open(HomePageData.INDEX_HTML_URL);
+        indexPage.open(INDEX_HTML_URL);
 
         //2 assert Browser title
-        indexPage.checkTitle(HomePageData.HOME_PAGE_TITLE);
+        indexPage.checkTitle(HOME_PAGE_TITLE);
 
         //3 log in using certain userID-password
-        indexPage.login(Users.PETER);
+        indexPage.login(PETER);
 
         //4 assert that username is displayed and has a proper value
-        indexPage.checkUsername(Users.PETER);
+        indexPage.checkUsername(PETER);
 
         //5 assert Browser title
-        indexPage.checkTitle(HomePageData.HOME_PAGE_TITLE);
+        indexPage.checkTitle(HOME_PAGE_TITLE);
 
         //6 assert that there are 4 items on the header section, they are displayed and they have proper names
-        indexPage.checkHeaderSection();
+        indexPage.checkHeaderSection(HeaderSection.values());
 
         //7 assert that there are 4 images on the Index page and they are displayed
         indexPage.checkImages();
 
         //8 assert that there is text under of each icon on the Index page and each text is proper
-        indexPage.checkTextUnderImages();
+        indexPage.checkTextUnderImages(TextsUnderImages.values());
 
         //9 assert text of the main header
-        indexPage.checkMainHeaderTexts();
+        indexPage.checkMainHeaderTexts(TEXT_HEADER, TEXT_CONTENT);
 
         //10 assert that there is the iframe in the main page
         indexPage.checkIFrame();
@@ -72,10 +76,10 @@ public class PageObjectDesignTest {
         indexPage.checkEpamLogoIFrame();
 
         //12 assert a text of the sub header
-        indexPage.checkSubHeaderText();
+        indexPage.checkSubHeaderText(TEXT_SUB_HEADER);
 
         //13 assert that JDI GITHUB is a link and has a proper URL
-        indexPage.checkJdiGithub(HomePageData.JDI_GITHUB_LINK);
+        indexPage.checkJdiGithub(JDI_GITHUB_LINK);
 
         //14 assert that there is Left Section
         indexPage.checkLeftSection();

@@ -131,7 +131,7 @@ public class SelenideDEPIndexPage {
     public void selectCheckboxes() {
         for (int i = 0; i < dEPCheckBox.size(); i++) {
             dEPCheckBox.get(i).click();
-            sleep(1000);
+            sleep(1000); // TODO This is really bad practice
         }
     }
 

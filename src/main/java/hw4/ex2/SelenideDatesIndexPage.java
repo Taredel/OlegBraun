@@ -16,6 +16,8 @@ import static hw4.enums.SelenideIndexPageData.LEFT_SLIDER;
 import static hw4.enums.SelenideIndexPageData.RIGHT_SLIDER;
 import static org.testng.Assert.assertEquals;
 
+// TODO You should not repeat yourself (DRY).
+// TODO You already have IndexPage within login stuff.
 public class SelenideDatesIndexPage {
 
     @FindBy(css = "[id='user-icon']")
@@ -66,8 +68,11 @@ public class SelenideDatesIndexPage {
         datesPage.click();
     }
 
+    // TODO Methods around slider can be simplified.
+    // TODO Basically, you should have one method in order to set values (left, right)
+    // TODO And one method to checkLog
     public void moveSlidersBoundryPosition() {
-        sleep(1000);
+        sleep(1000); // TODO Is this really necessary here ?
         actions().dragAndDropBy(nodes.get(0), -1000, 0).build().perform();
         sleep(1000);
         actions().dragAndDropBy(nodes.get(1), 1000, 0).build().perform();

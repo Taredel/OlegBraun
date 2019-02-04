@@ -30,6 +30,8 @@ public enum SelenideIndexPageData {
     RIGHT_SLIDER("To");
 
     public String value;
+    // TODO What is the reason of this fields ?
+    // TODO You can just separate this Enum class.
     public static List<String> checkBox = new ArrayList<>();
     public static List<String> radioButton = new ArrayList<>();
     public static List<String> colors = new ArrayList<>();

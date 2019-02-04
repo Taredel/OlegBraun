@@ -19,6 +19,7 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class SelenideDifferentElementsPageTest extends SelenideBase {
 
+    // TODO This is not an IndexPage, this should be DifferentElementPage !
     private SelenideDEPIndexPage indexPage;
 
     @BeforeMethod
@@ -48,9 +49,11 @@ public class SelenideDifferentElementsPageTest extends SelenideBase {
         indexPage.checkHeaderSection();
 
         //7 open Service -> Different Elements Page
+        // TODO This method should be parametrised
         indexPage.openDifferentElementsPage();
 
         //8 check that Different Elements Page contains all elements it should have
+        // TODO All of this methods should not be in indexPage !!
         indexPage.checkDifferentElementsPageElements();
 
         //9 check that there is right section in Different Elements Page
@@ -60,6 +63,9 @@ public class SelenideDifferentElementsPageTest extends SelenideBase {
         indexPage.checkDifferentElementsPageLeftSection();
 
         //11 select checkboxes
+        // TODO Take a look on HW task, Data column.
+        // TODO This method should be parametrised.
+        // TODO Same story with methods below, take a look on HW task carefully
         indexPage.selectCheckboxes();
 
         //12 check that for each checkbox there is an individual log row and value is corresponded to the status of checkbox. 

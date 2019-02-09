@@ -1,6 +1,8 @@
 package hw3;
 
+import hw3.enums.HeaderSection;
 import hw3.enums.HomePageData;
+import hw3.enums.TextsUnderImages;
 import hw3.enums.Users;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -57,7 +59,7 @@ public class IndexPage {
     private WebElement subHeaderText;
 
     // TODO This locator should be simplified (4 letters at maximum)
-    @FindBy(css = "div.main-content > h3:nth-child(3) > a")
+    @FindBy(css = "a[ui='link']")
     private WebElement gdiGithub;
 
     @FindBy(css = "[id='mCSB_1_container']")
@@ -91,11 +93,11 @@ public class IndexPage {
     }
 
     // TODO This method should be parameterized by expected list of data
-    public void checkHeaderSection() {
+    public void checkHeaderSection(HeaderSection[] values) {
         assertEquals(headerSection.size(), 4);
         for (int i = 0; i < headerSection.size(); i++) {
             assertTrue(headerSection.get(i).isDisplayed());
-            assertEquals(headerSection.get(i).getText(), getHeaderSectionText().get(i));
+            assertEquals(headerSection.get(i).getText(), values[i].toString());
         }
     }
 
@@ -107,17 +109,17 @@ public class IndexPage {
     }
 
     // TODO This method should be parameterized by expected list of data
-    public void checkTextUnderImages() {
+    public void checkTextUnderImages(TextsUnderImages[] values) {
         assertEquals(texts.size(), 4);
         for (int i = 0; i < texts.size(); i++) {
             assertTrue(texts.get(i).isDisplayed());
-            assertEquals(texts.get(i).getText(), getTextsUnderImages().get(i));
+            assertEquals(texts.get(i).getText(), values[i].toString());
         }
     }
 
-    public void checkMainHeaderTexts() {
-        assertEquals(headline.getText().trim(), TEXT_HEADER.value);
-        assertEquals(textBelowHeadline.getText().trim(), TEXT_CONTENT.value);
+    public void checkMainHeaderTexts(HomePageData textHeader, HomePageData textContent) {
+        assertEquals(headline.getText().trim(), textHeader.value);
+        assertEquals(textBelowHeadline.getText().trim(), textContent.value);
     }
 
     public void checkIFrame() {
@@ -130,8 +132,8 @@ public class IndexPage {
         driver.switchTo().parentFrame();
     }
 
-    public void checkSubHeaderText() {
-        assertEquals(subHeaderText.getText(), TEXT_SUB_HEADER.value);
+    public void checkSubHeaderText(HomePageData textSubHeader) {
+        assertEquals(subHeaderText.getText(), textSubHeader.value);
     }
 
     public void checkJdiGithub(HomePageData jdiLink) {

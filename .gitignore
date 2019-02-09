@@ -9,10 +9,8 @@ target
 
 src/test/java/tmp
 
-/_windows/
-
-/codestyles/
-
+_windows/
+codestyles/
 debugger.xml
 
 filetypes.xml
@@ -20,3 +18,8 @@ filetypes.xml
 mavenVersion.xml
 Editor
 build
+Default.xml
+laf.xml
+path.macros.xml
+git.xml
+editor.codeinsight.xml

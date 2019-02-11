@@ -1,0 +1,9 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Annotations">
+    <test name="Annotations test">
+        <classes>
+            <class name="hw4.ex2.DatesTest"/>
+        </classes>
+    </test>
+</suite>

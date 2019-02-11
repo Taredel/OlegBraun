@@ -11,8 +11,6 @@ public enum DatesData {
     // TODO What is the reason of this fields ?
     // TODO You can just separate this Enum class.
 
-    public static List<String> colors = new ArrayList<>();
-
     DatesData(String value) {
         this.value = value;
     }

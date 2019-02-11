@@ -1,9 +1,7 @@
 package hw3;
 
 import hw3.enums.HeaderSection;
-import hw3.enums.HomePageData;
-import hw3.enums.TextsUnderImages;
-import hw3.enums.Users;
+import hw3.enums.BenefitTexts;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.PageFactory;
@@ -61,10 +59,10 @@ public class PageObjectDesignTest {
         indexPage.checkHeaderSection(HeaderSection.values());
 
         //7 assert that there are 4 images on the Index page and they are displayed
-        indexPage.checkImages();
+        indexPage.checkBenefitImages();
 
         //8 assert that there is text under of each icon on the Index page and each text is proper
-        indexPage.checkTextUnderImages(TextsUnderImages.values());
+        indexPage.checkBenefitTexts(BenefitTexts.values());
 
         //9 assert text of the main header
         indexPage.checkMainHeaderTexts(TEXT_HEADER, TEXT_CONTENT);
@@ -76,7 +74,7 @@ public class PageObjectDesignTest {
         indexPage.checkEpamLogoIFrame();
 
         //12 assert a text of the sub header
-        indexPage.checkSubHeaderText(TEXT_SUB_HEADER);
+        indexPage.checkSubHeaderText(JDI_GITHUB);
 
         //13 assert that JDI GITHUB is a link and has a proper URL
         indexPage.checkJdiGithub(JDI_GITHUB_LINK);

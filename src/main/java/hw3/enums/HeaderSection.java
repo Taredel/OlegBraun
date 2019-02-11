@@ -1,11 +1,10 @@
 package hw3.enums;
 
 public enum HeaderSection {
-
-    HEADER_SECTION_TITLE_1("HOME"),
-    HEADER_SECTION_TITLE_2("CONTACT FORM"),
-    HEADER_SECTION_TITLE_3("SERVICE"),
-    HEADER_SECTION_TITLE_4("METALS & COLORS");
+    HOME("HOME"),
+    CONTACT_FORM("CONTACT FORM"),
+    SERVICE("SERVICE"),
+    METALS_COLORS("METALS & COLORS");
 
     private String value;
 

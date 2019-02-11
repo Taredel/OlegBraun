@@ -2,15 +2,17 @@ package hw3;
 
 import hw3.enums.HeaderSection;
 import hw3.enums.HomePageData;
-import hw3.enums.TextsUnderImages;
+import hw3.enums.BenefitTexts;
 import hw3.enums.Users;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.testng.Assert;
 
 import java.util.List;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
-import static hw3.enums.HomePageData.*;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertNotNull;
 import static org.testng.Assert.assertTrue;
@@ -38,10 +40,10 @@ public class IndexPage {
     private List<WebElement> headerSection;
 
     @FindBy(css = ".benefit-icon")
-    private List<WebElement> images;
+    private List<WebElement> benefitImages;
 
     @FindBy(css = ".benefit-txt")
-    private List<WebElement> texts;
+    private List<WebElement> benefitTexts;
 
     @FindBy(css = "[name='main-title']")
     private WebElement headline;
@@ -95,25 +97,31 @@ public class IndexPage {
     // TODO This method should be parameterized by expected list of data
     public void checkHeaderSection(HeaderSection[] values) {
         assertEquals(headerSection.size(), 4);
-        for (int i = 0; i < headerSection.size(); i++) {
-            assertTrue(headerSection.get(i).isDisplayed());
-            assertEquals(headerSection.get(i).getText(), values[i].toString());
+        List<String> actual = headerSection
+                .stream()
+                .map(WebElement::getText)
+                .collect(Collectors.toList());
+        for (HeaderSection value : values) {
+            assertTrue(actual.contains(value.toString()));
         }
     }
 
-    public void checkImages() {
-        assertEquals(images.size(), 4);
-        for (WebElement image : images) {
+    public void checkBenefitImages() {
+        assertEquals(benefitImages.size(), 4);
+        for (WebElement image : benefitImages) {
             assertTrue(image.isDisplayed());
         }
     }
 
     // TODO This method should be parameterized by expected list of data
-    public void checkTextUnderImages(TextsUnderImages[] values) {
-        assertEquals(texts.size(), 4);
-        for (int i = 0; i < texts.size(); i++) {
-            assertTrue(texts.get(i).isDisplayed());
-            assertEquals(texts.get(i).getText(), values[i].toString());
+    public void checkBenefitTexts(BenefitTexts[] values) {
+        assertEquals(benefitTexts.size(), 4);
+        List<String> actual = benefitTexts
+                .stream()
+                .map(WebElement::getText)
+                .collect(Collectors.toList());
+        for (BenefitTexts value : values) {
+            assertTrue(actual.contains(value.toString()));
         }
     }
 

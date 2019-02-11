@@ -23,3 +23,5 @@ laf.xml
 path.macros.xml
 git.xml
 editor.codeinsight.xml
+.allure
+ide.general.xml

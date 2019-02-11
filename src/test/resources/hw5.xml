@@ -3,7 +3,7 @@
 <suite name="Annotations">
     <test name="Annotations test">
         <classes>
-            <class name="hw4.ex2.DatesTest"/>
+            <class name="hw5.DifferentElementsTest"/>
         </classes>
     </test>
 </suite>

@@ -39,7 +39,6 @@ public class PageObjectDesignTest {
     @Test
     public void mainPageTest() {
 
-        // TODO This test can be simplified by static imports
         //1 open site by URL
         indexPage.open(INDEX_HTML_URL);
 

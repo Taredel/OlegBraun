@@ -5,8 +5,6 @@ public enum DatesData {
     RIGHT_SLIDER("To");
 
     public String value;
-    // TODO What is the reason of this fields ?
-    // TODO You can just separate this Enum class.
 
     DatesData(String value) {
         this.value = value;

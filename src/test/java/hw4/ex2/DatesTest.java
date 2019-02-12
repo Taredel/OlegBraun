@@ -1,7 +1,6 @@
 package hw4.ex2;
 
-import hw3.enums.Users;
-import hw4.IndexPages.Dates;
+import hw4.IndexPages.DatesPage;
 import hw4.IndexPages.SelenideIndexPage;
 import hw4.SelenideBase;
 import io.qameta.allure.Feature;
@@ -28,18 +27,17 @@ import static hw4.enums.MenuSections.DATES;
 
 @Listeners(AllureAttachmentListener.class)
 @Feature("Selenide Test Suite")
-@Story("Dates Page Test")
+@Story("DatesPage Page Test")
 public class DatesTest extends SelenideBase {
 
-    // TODO This is not an dates
     private SelenideIndexPage indexPage;
-    private Dates dates;
+    private DatesPage dates;
 
     @BeforeMethod
     public void beforeMethod() {
         open(INDEX_HTML_URL.value);
         indexPage = page(SelenideIndexPage.class);
-        dates = page(Dates.class);
+        dates = page(DatesPage.class);
     }
 
     @Test
@@ -54,7 +52,7 @@ public class DatesTest extends SelenideBase {
         //3 assert that username is displayed and has a proper value
         indexPage.checkUsername(PETER);
 
-        //4 open Service -> Dates page
+        //4 open Service -> DatesPage page
         indexPage.openPage(DATES);
 
         //5 set left slider in the most left position and right slider in the most right position

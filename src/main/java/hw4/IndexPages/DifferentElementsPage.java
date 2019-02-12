@@ -2,29 +2,32 @@ package hw4.IndexPages;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
-import hw4.enums.Buttons;
-import hw4.enums.Checkboxes;
+import hw4.enums.Elements;
 import hw4.enums.Colors;
-import hw4.enums.Radiobuttons;
+import hw4.enums.Metals;
+import io.qameta.allure.Step;
 import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
 
+import static hw4.enums.Colors.COLOR;
+import static hw4.enums.Metals.METAL;
 import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertTrue;
 
 public class DifferentElementsPage {
 
     @FindBy(css = ".label-checkbox")
-    private List<SelenideElement> checkBox;
+    private List<SelenideElement> elementsCheckbox;
 
     @FindBy(css = ".label-radio")
-    private List<SelenideElement> radioButton;
+    private List<SelenideElement> metals;
 
     @FindBy(css = "select.uui-form-element")
     private SelenideElement dropdownColors;
 
     @FindBy(css = "[class=uui-button]")
-    private List<SelenideElement> button;
+    private List<SelenideElement> buttons;
 
     @FindBy(css = "[name='log-sidebar']")
     private SelenideElement rightSection;
@@ -38,64 +41,81 @@ public class DifferentElementsPage {
     @FindBy(css = ".uui-form-element option")
     private List<SelenideElement> colors;
 
-    public void checkDifferentElementsPageElements(Checkboxes[] checkboxes, Radiobuttons[] radiobuttons,
-                                                   Colors[] dropdown, Buttons[] buttons) {
-        assertEquals(checkBox.size(), checkboxes.length);
-        checkBox.forEach(list -> list.should(Condition.visible));
-        assertEquals(radioButton.size(), radiobuttons.length);
-        radioButton.forEach(list -> list.should(Condition.visible));
-        assertEquals(colors.size(), dropdown.length);
+
+    @Step
+    public void checkElements() {
+        assertEquals(elementsCheckbox.size(), 4);
+        elementsCheckbox.forEach(list -> list.should(Condition.visible));
+        assertEquals(metals.size(), 4);
+        metals.forEach(list -> list.should(Condition.visible));
+        assertEquals(colors.size(), 4);
         colors.forEach(list -> list.should(Condition.visible));
-        assertEquals(button.size(), buttons.length);
-        button.forEach(list -> list.should(Condition.visible));
+        assertEquals(buttons.size(), 2);
+        buttons.forEach(list -> list.should(Condition.visible));
     }
 
-    public void checkDifferentElementsPageRightSection() {
+    @Step
+    public void checkRightSection() {
         rightSection.should(Condition.visible);
     }
 
-    public void checkDifferentElementsPageLeftSection() {
+    @Step
+    public void checkLeftSection() {
         leftSection.should(Condition.visible);
     }
 
-    public void selectCheckboxes(Checkboxes value1, Checkboxes value2) {
-        for (int i = 0; i < checkBox.size(); i++) {
-            if (checkBox.get(i).getText().trim().toUpperCase().equals(value1.toString())) {
-                checkBox.get(i).click();
-            }
-            if (checkBox.get(i).getText().trim().toUpperCase().equals(value2.toString())) {
-                checkBox.get(i).click();
-            }
-        }
-    }
-
-    public void checkLogForCheckboxes(Checkboxes value1, Checkboxes value2) {
-        listLog.get(0).shouldHave(Condition.text(value2.toString()));
-        listLog.get(1).shouldHave(Condition.text(value1.toString()));
-    }
-
-    public void selectRadiobuttons(Radiobuttons value) {
-        for (int i = 0; i < radioButton.size(); i++) {
-            if (radioButton.get(i).getText().toUpperCase().equals(value.toString())) {
-                radioButton.get(i).click();
+    @Step
+    public void selectElements(Elements... values) {
+        for (SelenideElement element : elementsCheckbox) {
+            for (Elements value : values) {
+                if (element.getText().toUpperCase().contains(value.toString())) {
+                    element.click();
+                }
             }
         }
     }
 
-    public void checkLogForRadiobuttons(Radiobuttons value) {
-        listLog.get(0).shouldHave(Condition.text(value.toString()));
+    @Step
+    public void selectMetals(Metals... values) {
+        for (SelenideElement metal : metals) {
+            for (Metals value : values) {
+                if (metal.getText().toUpperCase().contains(value.toString())) {
+                    metal.click();
+                }
+            }
+        }
     }
 
-    public void selectDropdownColors(Colors value) {
+    @Step
+    public void selectColors(Colors... values) {
         dropdownColors.click();
-        for (int i = 0; i < colors.size(); i++) {
-            if (colors.get(i).getText().toUpperCase().equals(value.toString())) {
-                colors.get(i).click();
+        for (SelenideElement color : colors) {
+            for (Colors value : values) {
+                if (color.getText().toUpperCase().contains(value.toString())) {
+                    color.click();
+                }
             }
         }
     }
 
-    public void checkLogForColors(Colors value) {
-        listLog.get(0).shouldHave(Condition.text(value.toString()));
+    @Step
+    public void checkLog(boolean status, String... values) {
+        StringBuffer actualValue = new StringBuffer();
+        for (String value : values) {
+            actualValue.setLength(0);
+            for (int i = 0; i < value.length(); i++) {
+                if (listLog.get(i).getText().toUpperCase().contains(value) && listLog.get(i).getText()
+                        .contains(String.valueOf(status))) {
+                    actualValue.append(value);
+                    break;
+                } else if (listLog.get(i).getText().toLowerCase().contains(METAL.value)
+                        || listLog.get(i).getText().toLowerCase().contains(COLOR.value)) {
+                    actualValue.append(value);
+                    break;
+                }
+            }
+            assertEquals(value, actualValue.toString());
+        }
     }
+
 }

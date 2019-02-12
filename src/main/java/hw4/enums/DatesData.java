@@ -1,8 +1,5 @@
 package hw4.enums;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public enum DatesData {
     LEFT_SLIDER("From"),
     RIGHT_SLIDER("To");

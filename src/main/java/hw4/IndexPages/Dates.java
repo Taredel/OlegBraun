@@ -1,6 +1,7 @@
 package hw4.IndexPages;
 
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
@@ -26,6 +27,7 @@ public class Dates {
 
     private static double step;
 
+    @Step
     public void moveSliders(int left, int right) {
         if (left == 0 && right == 100) {
             actions().dragAndDropBy(nodes.get(0), -1000, 0).build().perform();
@@ -45,6 +47,7 @@ public class Dates {
         }
     }
 
+    @Step
     public void checkSlidersPositions(int leftSliderValue, int rightSliderValue) {
         for (int i = 0; i < 2; i++) {
             if (log.get(i).getText().contains(LEFT_SLIDER.value)) {

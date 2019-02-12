@@ -1,12 +1,15 @@
 package hw4.enums;
 
-public enum Buttons {
-    DEFAULT_BUTTON("Default Button"),
-    BUTTON("Button");
+public enum Metals {
+    GOLD("GOLD"),
+    SILVER("SILVER"),
+    BRONZE("BRONZE"),
+    SELEN("SELEN"),
+    METAL("metal");
 
     public String value;
 
-    Buttons(String value) {
+    Metals(String value) {
         this.value = value;
     }
 

@@ -25,3 +25,4 @@ git.xml
 editor.codeinsight.xml
 .allure
 ide.general.xml
+code.style.schemes.xml

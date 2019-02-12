@@ -4,14 +4,19 @@ import hw3.enums.Users;
 import hw4.IndexPages.Dates;
 import hw4.IndexPages.SelenideIndexPage;
 import hw4.SelenideBase;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Story;
+import listeners.AllureAttachmentListener;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.Selenide.page;
 import static hw3.enums.HomePageData.HOME_PAGE_TITLE;
 import static hw3.enums.HomePageData.INDEX_HTML_URL;
-import static hw4.enums.MenuSections.MENU_SECTION_2;
+import static hw3.enums.Users.PETER;
+import static hw4.enums.MenuSections.DATES;
 
 /**
  * This class tests web page with URL "https://epam.github.io/JDI/" and one specific page using Selenide
@@ -21,6 +26,9 @@ import static hw4.enums.MenuSections.MENU_SECTION_2;
  * @version 1.0 02 Feb 2019
  */
 
+@Listeners(AllureAttachmentListener.class)
+@Feature("Selenide Test Suite")
+@Story("Dates Page Test")
 public class DatesTest extends SelenideBase {
 
     // TODO This is not an dates
@@ -41,13 +49,13 @@ public class DatesTest extends SelenideBase {
         indexPage.checkTitle(HOME_PAGE_TITLE);
 
         //2 log in using certain userID-password
-        indexPage.login(Users.PETER);
+        indexPage.login(PETER);
 
         //3 assert that username is displayed and has a proper value
-        indexPage.checkUsername(Users.PETER);
+        indexPage.checkUsername(PETER);
 
         //4 open Service -> Dates page
-        indexPage.openPage(MENU_SECTION_2.value);
+        indexPage.openPage(DATES);
 
         //5 set left slider in the most left position and right slider in the most right position
         dates.moveSliders(0, 100);

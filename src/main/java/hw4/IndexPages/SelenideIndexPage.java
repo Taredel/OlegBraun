@@ -6,9 +6,12 @@ import com.codeborne.selenide.WebDriverRunner;
 import hw3.enums.HomePageData;
 import hw3.enums.Users;
 import hw4.enums.MenuSections;
+import io.qameta.allure.Step;
 import org.openqa.selenium.support.FindBy;
 
+import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
@@ -43,10 +46,12 @@ public class SelenideIndexPage {
     @FindBy(css = "a[ui=label] + ul li")
     private List<SelenideElement> leftSectionMenu;
 
+    @Step
     public void checkTitle(HomePageData title) {
         assertEquals(WebDriverRunner.getWebDriver().getTitle(), title.toString());
     }
 
+    @Step
     public void login(Users user) {
         loginIcon.click();
         userField.sendKeys(user.getLogin());
@@ -54,37 +59,39 @@ public class SelenideIndexPage {
         submitButton.click();
     }
 
+    @Step
     public void checkUsername(Users user) {
         assertTrue(usernameField.isDisplayed());
         assertEquals(usernameField.getText(), user.getUsername());
     }
 
-    public void checkDropDownSection(MenuSections[] value) {
+    @Step
+    public void checkDropDownSection(MenuSections[] values) {
         dropdown.click();
-        for (int i = 0; i < value.length; i++) {
-            for (int j = 0; j < dropdownMenu.size(); j++) {
-                if (dropdownMenu.get(j).toString().contains(value[i].toString())) {
-                    dropdownMenu.get(j).should(Condition.visible);
-                    dropdownMenu.get(j).shouldHave(text(value[i].toString()));
-                }
-            }
+        List<String> actual = dropdownMenu
+                .stream()
+                .map(SelenideElement::getText)
+                .collect(Collectors.toList());
+        for (MenuSections value : values) {
+            assertTrue(actual.contains(value.toString()));
         }
     }
 
-    public void checkLeftSection(MenuSections[] value) {
+    @Step
+    public void checkLeftSection(MenuSections[] values) {
         leftSection.click();
-        for (int i = 0; i < value.length; i++) {
-            for (int j = 0; j < leftSectionMenu.size(); j++) {
-                if (leftSectionMenu.get(j).toString().contains(value[i].toString())) {
-                    leftSectionMenu.get(j).should(Condition.visible);
-                    leftSectionMenu.get(j).shouldHave(text(value[i].toString()));
-                }
-            }
+        List<String> actual = leftSectionMenu
+                .stream()
+                .map(SelenideElement::getText)
+                .collect(Collectors.toList());
+        for (MenuSections value : values) {
+            assertTrue(actual.toString().toUpperCase().contains(value.toString()));
         }
     }
 
-    public void openPage(String menuSection) {
+    @Step
+    public void openPage(MenuSections menuSection) {
         dropdown.click();
-        $(".dropdown-menu a[href*=" + menuSection.substring(0, 4).toLowerCase() + "]").click();
+        $(".dropdown-menu a[href*=" + menuSection.toString().substring(0, 4).toLowerCase() + "]").click();
     }
 }

@@ -1,8 +1,10 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
-<suite name="Annotations">
-    <test name="Annotations test">
+<suite name="Selenide Tests with Allure reports ">
+    <test name="Selenide tests" parallel="methods" thread-count="3">
         <classes>
+            <class name="hw4.ex1.DifferentElementsTest"/>
+            <class name="hw4.ex2.DatesTest"/>
             <class name="hw5.DifferentElementsTest"/>
         </classes>
     </test>

@@ -11,19 +11,13 @@ import static com.codeborne.selenide.Selenide.actions;
 import static hw4.enums.DatesData.LEFT_SLIDER;
 import static hw4.enums.DatesData.RIGHT_SLIDER;
 
-// TODO You should not repeat yourself (DRY).
-// TODO You already have SelenideIndexPage within login stuff.
-public class Dates {
+public class DatesPage {
 
     @FindBy(css = ".ui-slider-handle.ui-state-default.ui-corner-all")
     private List<SelenideElement> nodes;
 
     @FindBy(css = ".panel-body-list.logs li")
     private List<SelenideElement> log;
-
-    // TODO Methods around slider can be simplified.
-    // TODO Basically, you should have one method in order to set values (left, right)
-    // TODO And one method to checkLog
 
     private static double step;
 

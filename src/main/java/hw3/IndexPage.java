@@ -60,7 +60,7 @@ public class IndexPage {
     @FindBy(css = "[class='text-center']")
     private WebElement subHeaderText;
 
-    // TODO This locator should be simplified (4 letters at maximum)
+    // TODO 'h3 a' But your locator is OK
     @FindBy(css = "a[ui='link']")
     private WebElement gdiGithub;
 
@@ -94,7 +94,6 @@ public class IndexPage {
         assertEquals(usernameField.getText(), user.getUsername());
     }
 
-    // TODO This method should be parameterized by expected list of data
     public void checkHeaderSection(HeaderSection[] values) {
         assertEquals(headerSection.size(), 4);
         List<String> actual = headerSection
@@ -113,7 +112,6 @@ public class IndexPage {
         }
     }
 
-    // TODO This method should be parameterized by expected list of data
     public void checkBenefitTexts(BenefitTexts[] values) {
         assertEquals(benefitTexts.size(), 4);
         List<String> actual = benefitTexts

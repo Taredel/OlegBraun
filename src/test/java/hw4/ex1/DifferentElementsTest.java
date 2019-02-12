@@ -35,7 +35,6 @@ import static hw4.enums.Metals.SELEN;
 @Story("Different Elements Page Test")
 public class DifferentElementsTest extends SelenideBase {
 
-    // TODO This is not an SelenideIndexPage, this should be DifferentElementPage !
     private SelenideIndexPage selenideIndexPage;
     private DifferentElementsPage differentElementsPage;
 
@@ -65,11 +64,9 @@ public class DifferentElementsTest extends SelenideBase {
         selenideIndexPage.checkLeftSection(MenuSections.values());
 
         //6 open Service -> Different Elements Page
-        // TODO This method should be parametrised
         selenideIndexPage.openPage(DIFFERENT_ELEMENTS);
 
         //8 check that Different Elements Page contains all elements it should have
-        // TODO All of this methods should not be in selenideIndexPage !!
         differentElementsPage.checkElements();
 
         //9 check that there is right section in Different Elements Page
@@ -79,9 +76,6 @@ public class DifferentElementsTest extends SelenideBase {
         differentElementsPage.checkLeftSection();
 
         //11 select checkboxes containing elements
-        // TODO Take a look on HW task, Data column.
-        // TODO This method should be parametrised.
-        // TODO Same story with methods below, take a look on HW task carefully
         differentElementsPage.selectElements(WATER, WIND);
 
         //12 check that for each checkbox there is an individual log row and value is corresponded to the status of checkbox. 

@@ -51,7 +51,7 @@ public class SelenideIndexPage {
         assertEquals(WebDriverRunner.getWebDriver().getTitle(), title.toString());
     }
 
-    @Step
+    @Step("Log in with user '{user.login}' and password '{user.password}'")
     public void login(Users user) {
         loginIcon.click();
         userField.sendKeys(user.getLogin());

@@ -1,7 +1,7 @@
 package hw4.ex2;
 
-import hw4.IndexPages.DatesPage;
-import hw4.IndexPages.SelenideIndexPage;
+import hw4.pageObjects.DatesPage;
+import hw4.pageObjects.SelenideIndexPage;
 import hw4.SelenideBase;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
@@ -14,7 +14,7 @@ import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.Selenide.page;
 import static hw3.enums.HomePageData.HOME_PAGE_TITLE;
 import static hw3.enums.HomePageData.INDEX_HTML_URL;
-import static hw3.enums.Users.PETER;
+import static hw3.enums.User.PITER_CHAILOVSKII;
 import static hw4.enums.MenuSections.DATES;
 
 /**
@@ -47,12 +47,15 @@ public class DatesTest extends SelenideBase {
         indexPage.checkTitle(HOME_PAGE_TITLE);
 
         //2 log in using certain userID-password
-        indexPage.login(PETER);
+        indexPage.login(PITER_CHAILOVSKII);
 
         //3 assert that username is displayed and has a proper value
-        indexPage.checkUsername(PETER);
+        indexPage.checkUsername(PITER_CHAILOVSKII);
 
-        //4 open Service -> DatesPage page
+        //4' click Service
+        indexPage.openHeaderSection();
+
+        //4 open DatesPage
         indexPage.openPage(DATES);
 
         //5 set left slider in the most left position and right slider in the most right position

@@ -1,13 +1,14 @@
 package hw3.enums;
 
-public enum Users {
-    PETER("epam", "1234", "PITER CHAILOVSKII");
+public enum User {
 
-    private final String login;
-    private final String password;
-    private final String username;
+    PITER_CHAILOVSKII("epam", "1234", "PITER CHAILOVSKII");
 
-    Users(String login, String password, String username) {
+    public final String login;
+    public final String password;
+    public final String username;
+
+    User(String login, String password, String username) {
         this.login = login;
         this.password = password;
         this.username = username;

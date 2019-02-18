@@ -31,11 +31,23 @@ Feature: Cucumber Different Elements Page Test
     And Different Elements Page contains Right Section
     And Different Elements Page contains Left Section
     # TODO This will be better with list of elements
-    When I select checkboxes 'WATER' and 'WIND'
-    Then For each checkbox 'WATER' and 'WIND' there is a log row corresponding their status 'true'
-    When I select radiobutton 'SELEN'
-    Then There is a log for selected radiobutton 'SELEN'
-    When I select 'YELLOW' color
-    Then There is a log for selected color 'YELLOW'
-    When I unselect checkboxes 'WATER' and 'WIND'
-    Then For each checkbox 'WATER' and 'WIND' there is a log row corresponding their status 'false'
+    When I select checkboxes
+      |WATER |
+      |WIND  |
+    Then For each checkbox there is a log row corresponding their status 'true'
+      |WATER |
+      |WIND  |
+    When I select radiobutton
+      |SELEN |
+    Then There is a log for selected radiobutton
+      |SELEN |
+    When I select colors
+      |YELLOW |
+    Then There is a log for selected color
+      |YELLOW |
+    When I unselect checkboxes
+      |WATER |
+      |WIND  |
+    Then For each checkbox there is a log row corresponding their status 'false'
+      |WATER |
+      |WIND  |

@@ -14,6 +14,7 @@ import org.openqa.selenium.support.FindBy;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.page;
 import static org.openqa.selenium.By.xpath;
@@ -70,23 +71,11 @@ public class UserTablePage {
         desctiptionImagesTexts.forEach(list -> list.shouldBe(Condition.visible));
     }
 
-    public void checkUserTableValues(DataTable dataTable) {
-        List<List<String>> values = dataTable.raw();
-        for (int j = 0; j < values.get(j).size(); j++) {
-            for (int i = 0; i < values.size() - 1; i++) {
-                switch (j) {
-                    case 0:
-                        assertEquals(numbers.get(i).getText(), values.get(i + 1).get(j));
-                        break;
-                    case 1:
-                        assertEquals(usernames.get(i).getText(), values.get(i + 1).get(j));
-                        break;
-                    case 2:
-                        assertEquals(desctiptionImagesTexts.get(i).getText().replaceAll("[\n\r]", " "),
-                                values.get(i + 1).get(j));
-                        break;
-                }
-            }
+    public void checkUserTableValues(List<SuperHero> values) {
+        for (int i = 0; i < values.size(); i++) {
+            numbers.get(i).shouldBe(text(values.get(i).getNumber()));
+            usernames.get(i).shouldBe(text(values.get(i).getUser()));
+            desctiptionImagesTexts.get(i).shouldBe(text(values.get(i).getDescription()));
         }
     }
 
@@ -99,7 +88,7 @@ public class UserTablePage {
     }
 
     public void checklog(String logValue) {
-        log.get(0).shouldHave(Condition.text(logValue));
+        log.get(0).shouldHave(text(logValue));
     }
 
     private static String locatorForDroplist;
@@ -111,7 +100,7 @@ public class UserTablePage {
 
     public void checkDroplistValues(List<UserTableDropList> values) {
         for (int i = 0; i < values.size(); i++) {
-            $(xpath(locatorForDroplist + "/option" + "[" + (i + 1) + "]")).shouldHave(Condition.text(values.get(i).value));
+            $(xpath(locatorForDroplist + "/option" + "[" + (i + 1) + "]")).shouldHave(text(values.get(i).value));
         }
     }
 }

@@ -67,18 +67,21 @@ public class AssertionSteps {
         difPage.checkLeftSection();
     }
 
-    @Then("^For each checkbox '([^\"]*)' and '([^\"]*)' there is a log row corresponding their status '([^\"]*)'$")
-    public void checkCheckboxLogWhenTrue(Elements value1, Elements value2, boolean status) {
-        difPage.checkLog(status, value1.value, value2.value);
+    @Then("^For each checkbox there is a log row corresponding their status '([^\"]*)'$")
+    public void checkCheckboxLogWhenTrue(boolean status, List<String> values) {
+        String[] arr = values.toArray(new String[0]);
+        difPage.checkLog(status, arr);
     }
 
-    @Then("^There is a log for selected radiobutton '([^\"]*)'$")
-    public void checkMetalLogWhenTrue(Metals value) {
-        difPage.checkLog(true, value.value);
+    @Then("^There is a log for selected radiobutton$")
+    public void checkMetalLogWhenTrue(List<String> values) {
+        String[] arr = values.toArray(new String[0]);
+        difPage.checkLog(true, arr);
     }
 
-    @Then("^There is a log for selected color '([^\"]*)'$")
-    public void checkColorLogWhenTrue(Colors value) {
-        difPage.checkLog(true, value.value);
+    @Then("^There is a log for selected color$")
+    public void checkColorLogWhenTrue(List<String> values) {
+        String[] arr = values.toArray(new String[0]);
+        difPage.checkLog(true, arr);
     }
 }

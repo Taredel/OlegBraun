@@ -1,11 +1,10 @@
 package hw6.ex2.steps;
 
-import cucumber.api.DataTable;
-import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import hw4.enums.MenuSections;
 import hw6.UserTablePage;
+import hw6.SuperHero;
 import hw6.enums.UserTableDropList;
 
 import java.util.List;
@@ -43,8 +42,8 @@ public class AssertionSteps {
 
     // TODO I assume that it will be better with List<SuperHero>, for the example
     @And("^User table contains following values:$")
-    public void userTableContainsFollowingValues(DataTable dataTable) {
-        userTablePage.checkUserTableValues(dataTable);
+    public void userTableContainsFollowingValues(List<SuperHero> values) {
+        userTablePage.checkUserTableValues(values);
     }
 
     @Then("^1 log row has \"([^\"]*)\" text in log section$")

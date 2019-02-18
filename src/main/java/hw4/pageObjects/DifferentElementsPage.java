@@ -117,5 +117,4 @@ public class DifferentElementsPage {
             assertEquals(value, actualValue.toString());
         }
     }
-
 }

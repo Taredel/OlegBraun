@@ -6,6 +6,8 @@ import hw4.enums.*;
 import hw4.pageObjects.DifferentElementsPage;
 import hw4.pageObjects.SelenideIndexPage;
 
+import java.util.List;
+
 import static com.codeborne.selenide.Selenide.page;
 
 public class ActionSteps {
@@ -34,23 +36,27 @@ public class ActionSteps {
         indexPage.openPage(page);
     }
 
-    @When("^I select checkboxes '([^\"]*)' and '([^\"]*)'$")
-    public void selectCheckboxes(Elements value1, Elements value2) {
-        difPage.selectElements(value1, value2);
+    @When("^I select checkboxes")
+    public void selectCheckboxes(List<Elements> values) {
+        Elements[] arr = values.toArray(new Elements[0]);
+        difPage.selectElements(arr);
     }
 
-    @When("^I select radiobutton '([^\"]*)'$")
-    public void selectRadiobuttons(Metals value) {
-        difPage.selectMetals(value);
+    @When("^I select radiobutton")
+    public void selectRadiobuttons(List<Metals> values) {
+        Metals[] arr = values.toArray(new Metals[0]);
+        difPage.selectMetals(arr);
     }
 
-    @When("^I select '([^\"]*)' color$")
-    public void selectColor(Colors value) {
-        difPage.selectColors(value);
+    @When("^I select colors$")
+    public void selectColor(List<Colors> values) {
+        Colors[] arr = values.toArray(new Colors[0]);
+        difPage.selectColors(arr);
     }
 
-    @When("^I unselect checkboxes '([^\"]*)' and '([^\"]*)'$")
-    public void unselectCheckboxes(Elements value1, Elements value2) {
-        difPage.selectElements(value1, value2);
+    @When("^I unselect checkboxes$")
+    public void unselectCheckboxes(List<Elements> values) {
+        Elements[] arr = values.toArray(new Elements[0]);
+        difPage.selectElements(arr);
     }
 }

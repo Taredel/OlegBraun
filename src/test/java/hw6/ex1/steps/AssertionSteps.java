@@ -42,13 +42,13 @@ public class AssertionSteps {
 
     @Then("^Dropdown section should contains all options$")
     public void dropdownSectionContainsAllOptions(List<MenuSections> list) {
-        MenuSections[] arr = list.toArray(new MenuSections[list.size()]);
+        MenuSections[] arr = list.toArray(new MenuSections[0]);
         indexPage.checkDropDownSection(arr);
     }
 
     @Then("^Left Sections should contains all options$")
     public void leftSectionsContainsAllOptions(List<MenuSections> list) {
-        MenuSections[] arr = list.toArray(new MenuSections[list.size()]);
+        MenuSections[] arr = list.toArray(new MenuSections[0]);
         indexPage.checkLeftSection(arr);
     }
 

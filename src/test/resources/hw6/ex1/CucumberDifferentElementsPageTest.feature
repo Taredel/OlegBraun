@@ -30,6 +30,7 @@ Feature: Cucumber Different Elements Page Test
     Then Different Elements Page contains all needed elements
     And Different Elements Page contains Right Section
     And Different Elements Page contains Left Section
+    # TODO This will be better with list of elements
     When I select checkboxes 'WATER' and 'WIND'
     Then For each checkbox 'WATER' and 'WIND' there is a log row corresponding their status 'true'
     When I select radiobutton 'SELEN'

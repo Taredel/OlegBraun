@@ -11,7 +11,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import static hw3.enums.HomePageData.*;
-import static hw3.enums.Users.PETER;
+import static hw3.enums.User.PITER_CHAILOVSKII;
 import static java.lang.System.setProperty;
 
 public class PageObjectDesignTest {
@@ -46,10 +46,10 @@ public class PageObjectDesignTest {
         indexPage.checkTitle(HOME_PAGE_TITLE);
 
         //3 log in using certain userID-password
-        indexPage.login(PETER);
+        indexPage.login(PITER_CHAILOVSKII);
 
         //4 assert that username is displayed and has a proper value
-        indexPage.checkUsername(PETER);
+        indexPage.checkUsername(PITER_CHAILOVSKII);
 
         //5 assert Browser title
         indexPage.checkTitle(HOME_PAGE_TITLE);

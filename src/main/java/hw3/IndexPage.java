@@ -3,14 +3,12 @@ package hw3;
 import hw3.enums.HeaderSection;
 import hw3.enums.HomePageData;
 import hw3.enums.BenefitTexts;
-import hw3.enums.Users;
+import hw3.enums.User;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.testng.Assert;
 
 import java.util.List;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 import static org.testng.Assert.assertEquals;
@@ -60,7 +58,6 @@ public class IndexPage {
     @FindBy(css = "[class='text-center']")
     private WebElement subHeaderText;
 
-    // TODO 'h3 a' But your locator is OK
     @FindBy(css = "a[ui='link']")
     private WebElement gdiGithub;
 
@@ -82,14 +79,14 @@ public class IndexPage {
         assertEquals(driver.getTitle(), title.toString());
     }
 
-    public void login(Users user) {
+    public void login(User user) {
         loginIcon.click();
         userField.sendKeys(user.getLogin());
         passwordField.sendKeys(user.getPassword());
         submitButton.click();
     }
 
-    public void checkUsername(Users user) {
+    public void checkUsername(User user) {
         assertTrue(usernameField.isDisplayed());
         assertEquals(usernameField.getText(), user.getUsername());
     }

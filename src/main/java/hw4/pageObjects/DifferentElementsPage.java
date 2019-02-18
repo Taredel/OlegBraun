@@ -1,4 +1,4 @@
-package hw4.IndexPages;
+package hw4.pageObjects;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
@@ -117,5 +117,4 @@ public class DifferentElementsPage {
             assertEquals(value, actualValue.toString());
         }
     }
-
 }

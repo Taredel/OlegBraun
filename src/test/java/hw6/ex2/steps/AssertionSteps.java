@@ -40,7 +40,6 @@ public class AssertionSteps {
         userTablePage.checkDescriptionImagesTexts();
     }
 
-    // TODO I assume that it will be better with List<SuperHero>, for the example
     @And("^User table contains following values:$")
     public void userTableContainsFollowingValues(List<SuperHero> values) {
         userTablePage.checkUserTableValues(values);

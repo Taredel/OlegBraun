@@ -91,6 +91,11 @@ public class UserTablePage {
         log.get(0).shouldHave(text(logValue));
     }
 
+    // TODO
+    //    @FindBy(css = "#user-table tr")
+    //    ElementCollection rows
+    //    rows.find(Condition.matchText(name.value)).$("select").getText()
+
     private static String locatorForDroplist;
 
     public void openDropdownByUsername(UserTableNames name) {

@@ -1,5 +1,6 @@
 Feature: Cucumber User Table Page Test
 
+  # TODO It will be better to reuse steps from previous scenario instead of create new one
   Scenario: User Table Page Test
     Given I am on Home Page
     And I login as user "PITER_CHAILOVSKII"

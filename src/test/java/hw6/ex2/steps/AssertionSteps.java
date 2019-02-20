@@ -5,7 +5,6 @@ import cucumber.api.java.en.Then;
 import hw4.enums.MenuSections;
 import hw6.UserTablePage;
 import hw6.SuperHero;
-import hw6.enums.UserTableDropList;
 
 import java.util.List;
 
@@ -51,7 +50,7 @@ public class AssertionSteps {
     }
 
     @Then("^droplist contains values$")
-    public void droplistContainsValues(List<UserTableDropList> values) {
+    public void droplistContainsValues(List<String> values) {
         userTablePage.checkDroplistValues(values);
     }
 }

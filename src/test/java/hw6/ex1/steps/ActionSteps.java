@@ -42,16 +42,14 @@ public class ActionSteps {
         difPage.selectElements(arr);
     }
 
-    @When("^I select radiobutton")
-    public void selectRadiobuttons(List<Metals> values) {
-        Metals[] arr = values.toArray(new Metals[0]);
-        difPage.selectMetals(arr);
+    @When("^I select radiobutton '([^\"]*)'")
+    public void selectRadiobuttons(Metals value) {
+        difPage.selectMetals(value);
     }
 
-    @When("^I select colors$")
-    public void selectColor(List<Colors> values) {
-        Colors[] arr = values.toArray(new Colors[0]);
-        difPage.selectColors(arr);
+    @When("^I select colors '([^\"]*)'$")
+    public void selectColor(Colors value) {
+        difPage.selectColors(value);
     }
 
     @When("^I unselect checkboxes$")

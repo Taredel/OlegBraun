@@ -73,15 +73,13 @@ public class AssertionSteps {
         difPage.checkLog(status, arr);
     }
 
-    @Then("^There is a log for selected radiobutton$")
-    public void checkMetalLogWhenTrue(List<String> values) {
-        String[] arr = values.toArray(new String[0]);
-        difPage.checkLog(true, arr);
+    @Then("^There is a log for selected radiobutton '([^\"]*)'$")
+    public void checkMetalLogWhenTrue(String value) {
+        difPage.checkLog(true, value);
     }
 
-    @Then("^There is a log for selected color$")
-    public void checkColorLogWhenTrue(List<String> values) {
-        String[] arr = values.toArray(new String[0]);
-        difPage.checkLog(true, arr);
+    @Then("^There is a log for selected color '([^\"]*)'$")
+    public void checkColorLogWhenTrue(String value) {
+        difPage.checkLog(true, value);
     }
 }

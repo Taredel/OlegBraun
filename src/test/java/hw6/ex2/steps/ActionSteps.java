@@ -3,6 +3,7 @@ package hw6.ex2.steps;
 import com.codeborne.selenide.Condition;
 import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
+import cucumber.api.java.en.Given;
 import cucumber.api.java.en.When;
 import hw3.enums.User;
 import hw4.enums.MenuSections;
@@ -17,11 +18,6 @@ public class ActionSteps {
 
     private SelenideIndexPage indexPage = page(SelenideIndexPage.class);
     private UserTablePage userTablePage = page(UserTablePage.class);
-
-    @And("^I login as user \"([^\"]*)\"$")
-    public void iLoginAsUser(User user) {
-        indexPage.login(user);
-    }
 
     @When("^I click on Service button in Header$")
     public void clickOnHeaderSubcategories() {

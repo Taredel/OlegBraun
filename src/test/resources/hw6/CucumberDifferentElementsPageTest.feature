@@ -37,14 +37,10 @@ Feature: Cucumber Different Elements Page Test
     Then For each checkbox there is a log row corresponding their status 'true'
       |WATER |
       |WIND  |
-    When I select radiobutton
-      |SELEN |
-    Then There is a log for selected radiobutton
-      |SELEN |
-    When I select colors
-      |YELLOW |
-    Then There is a log for selected color
-      |YELLOW |
+    When I select radiobutton 'SELEN'
+    Then There is a log for selected radiobutton 'SELEN'
+    When I select colors 'YELLOW'
+    Then There is a log for selected color 'YELLOW'
     When I unselect checkboxes
       |WATER |
       |WIND  |

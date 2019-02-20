@@ -1,14 +1,8 @@
 package hw6;
 
-import com.codeborne.selenide.Condition;
-import com.codeborne.selenide.Selenide;
-import com.codeborne.selenide.SelenideElement;
-import com.codeborne.selenide.WebDriverRunner;
-import cucumber.api.DataTable;
+import com.codeborne.selenide.*;
 import hw4.enums.MenuSections;
-import hw6.enums.UserTableDropList;
 import hw6.enums.UserTableNames;
-import org.openqa.selenium.By;
 import org.openqa.selenium.support.FindBy;
 
 import java.util.ArrayList;
@@ -16,6 +10,7 @@ import java.util.List;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.$$;
 import static com.codeborne.selenide.Selenide.page;
 import static org.openqa.selenium.By.xpath;
 import static org.testng.Assert.assertEquals;
@@ -42,6 +37,9 @@ public class UserTablePage {
 
     @FindBy(css = ".logs li")
     private List<SelenideElement> log;
+
+    @FindBy(css = "#user-table tr")
+    private ElementsCollection rows;
 
     public UserTablePage() {
         page(this);
@@ -96,16 +94,15 @@ public class UserTablePage {
     //    ElementCollection rows
     //    rows.find(Condition.matchText(name.value)).$("select").getText()
 
-    private static String locatorForDroplist;
+    private static String userName;
 
     public void openDropdownByUsername(UserTableNames name) {
-        locatorForDroplist = "//a[text()='" + name.value + "']/ancestor::tr//select";
-        $(xpath(locatorForDroplist)).click();
+        userName = name.value;
+        $(xpath(String.format("//a[text()='%s']/ancestor::tr//select", userName))).click();
     }
 
-    public void checkDroplistValues(List<UserTableDropList> values) {
-        for (int i = 0; i < values.size(); i++) {
-            $(xpath(locatorForDroplist + "/option" + "[" + (i + 1) + "]")).shouldHave(text(values.get(i).value));
-        }
+    public void checkDroplistValues(List<String> values) {
+        $$(xpath(String.format("//a[text()='%s']/ancestor::tr//select/option", userName)))
+                .shouldHave(CollectionCondition.texts(values));
     }
 }

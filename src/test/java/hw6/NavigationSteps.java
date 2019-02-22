@@ -1,6 +1,5 @@
 package hw6;
 
-import cucumber.api.PendingException;
 import cucumber.api.java.en.Given;
 
 import static com.codeborne.selenide.Selenide.open;

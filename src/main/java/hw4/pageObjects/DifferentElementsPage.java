@@ -1,17 +1,15 @@
 package hw4.pageObjects;
 
+import hw4.enums.Colors;
+import hw4.enums.Elements;
+import hw4.enums.Metals;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
-import hw4.enums.Elements;
-import hw4.enums.Colors;
-import hw4.enums.Metals;
 import io.qameta.allure.Step;
 import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
 
-import static hw4.enums.Colors.COLOR;
-import static hw4.enums.Metals.METAL;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
@@ -108,8 +106,8 @@ public class DifferentElementsPage {
                         .contains(String.valueOf(status))) {
                     actualValue.append(value);
                     break;
-                } else if (listLog.get(i).getText().toLowerCase().contains(METAL.value)
-                        || listLog.get(i).getText().toLowerCase().contains(COLOR.value)) {
+                } else if (listLog.get(i).getText().toLowerCase().contains(Metals.METAL.value)
+                        || listLog.get(i).getText().toLowerCase().contains(Colors.COLOR.value)) {
                     actualValue.append(value);
                     break;
                 }

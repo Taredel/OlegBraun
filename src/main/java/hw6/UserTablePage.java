@@ -1,11 +1,10 @@
 package hw6;
 
-import com.codeborne.selenide.*;
 import hw4.enums.MenuSections;
 import hw6.enums.UserTableNames;
+import com.codeborne.selenide.*;
 import org.openqa.selenium.support.FindBy;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import static com.codeborne.selenide.Condition.text;
@@ -37,9 +36,6 @@ public class UserTablePage {
 
     @FindBy(css = ".logs li")
     private List<SelenideElement> log;
-
-    @FindBy(css = "#user-table tr")
-    private ElementsCollection rows;
 
     public UserTablePage() {
         page(this);
@@ -88,11 +84,6 @@ public class UserTablePage {
     public void checklog(String logValue) {
         log.get(0).shouldHave(text(logValue));
     }
-
-    // TODO
-    //    @FindBy(css = "#user-table tr")
-    //    ElementCollection rows
-    //    rows.find(Condition.matchText(name.value)).$("select").getText()
 
     private static String userName;
 

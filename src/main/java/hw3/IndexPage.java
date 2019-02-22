@@ -1,8 +1,8 @@
 package hw3;
 
+import hw3.enums.BenefitTexts;
 import hw3.enums.HeaderSection;
 import hw3.enums.HomePageData;
-import hw3.enums.BenefitTexts;
 import hw3.enums.User;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;

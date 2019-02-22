@@ -1,13 +1,8 @@
 package hw6.ex2.steps;
 
-import com.codeborne.selenide.Condition;
-import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
-import cucumber.api.java.en.Given;
 import cucumber.api.java.en.When;
-import hw3.enums.User;
 import hw4.enums.MenuSections;
-import hw4.pageObjects.DifferentElementsPage;
 import hw4.pageObjects.SelenideIndexPage;
 import hw6.UserTablePage;
 import hw6.enums.UserTableNames;

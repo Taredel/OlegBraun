@@ -1,5 +1,10 @@
 package hw6.enums;
 
+import jdk.nashorn.internal.objects.annotations.Constructor;
+import lombok.AllArgsConstructor;
+import lombok.ToString;
+
+@ToString
 public enum UserTableNames {
     ROMAN("Roman"),
     SERGEY_IVAN("Sergey Ivan"),
@@ -12,10 +17,5 @@ public enum UserTableNames {
 
     UserTableNames(String value) {
         this.value = value;
-    }
-
-    @Override
-    public String toString() {
-        return value;
     }
 }

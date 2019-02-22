@@ -1,8 +1,11 @@
 package hw6.ex1.steps;
 
+import hw4.enums.Colors;
+import hw4.enums.Elements;
+import hw4.enums.MenuSections;
+import hw4.enums.Metals;
 import cucumber.api.java.en.When;
 import hw3.enums.User;
-import hw4.enums.*;
 import hw4.pageObjects.DifferentElementsPage;
 import hw4.pageObjects.SelenideIndexPage;
 

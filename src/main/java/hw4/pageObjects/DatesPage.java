@@ -1,5 +1,6 @@
 package hw4.pageObjects;
 
+import hw4.enums.DatesData;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
 import org.openqa.selenium.support.FindBy;
@@ -8,8 +9,6 @@ import java.util.List;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.actions;
-import static hw4.enums.DatesData.LEFT_SLIDER;
-import static hw4.enums.DatesData.RIGHT_SLIDER;
 
 public class DatesPage {
 
@@ -44,11 +43,11 @@ public class DatesPage {
     @Step
     public void checkSlidersPositions(int leftSliderValue, int rightSliderValue) {
         for (int i = 0; i < 2; i++) {
-            if (log.get(i).getText().contains(LEFT_SLIDER.value)) {
-                log.get(i).shouldHave(text(LEFT_SLIDER.value));
+            if (log.get(i).getText().contains(DatesData.LEFT_SLIDER.value)) {
+                log.get(i).shouldHave(text(DatesData.LEFT_SLIDER.value));
                 log.get(i).shouldHave(text(String.valueOf(leftSliderValue)));
             } else {
-                log.get(i).shouldHave(text(RIGHT_SLIDER.value));
+                log.get(i).shouldHave(text(DatesData.RIGHT_SLIDER.value));
                 log.get(i).shouldHave(text(String.valueOf(rightSliderValue)));
             }
         }

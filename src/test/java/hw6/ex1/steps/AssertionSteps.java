@@ -5,10 +5,7 @@ import cucumber.api.java.en.Then;
 import hw3.enums.BenefitTexts;
 import hw3.enums.HomePageData;
 import hw3.enums.User;
-import hw4.enums.Colors;
-import hw4.enums.Elements;
 import hw4.enums.MenuSections;
-import hw4.enums.Metals;
 import hw4.pageObjects.DifferentElementsPage;
 import hw4.pageObjects.SelenideIndexPage;
 

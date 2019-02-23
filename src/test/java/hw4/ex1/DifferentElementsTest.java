@@ -1,24 +1,29 @@
 package hw4.ex1;
 
 
+import com.codeborne.selenide.SelenideElement;
+import hw4.enums.MenuSections;
 import hw4.pageObjects.DifferentElementsPage;
 import hw4.pageObjects.SelenideIndexPage;
 import hw4.SelenideBase;
-import hw4.enums.*;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
 import listeners.AllureAttachmentListener;
+import org.openqa.selenium.support.FindBy;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
+import java.util.List;
+
+import static hw4.enums.Elements.WATER;
+import static hw4.enums.Elements.WIND;
 import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.Selenide.page;
 import static hw3.enums.HomePageData.HOME_PAGE_TITLE;
 import static hw3.enums.HomePageData.INDEX_HTML_URL;
 import static hw3.enums.User.PITER_CHAILOVSKII;
 import static hw4.enums.Colors.YELLOW;
-import static hw4.enums.Elements.*;
 import static hw4.enums.MenuSections.DIFFERENT_ELEMENTS;
 import static hw4.enums.Metals.SELEN;
 

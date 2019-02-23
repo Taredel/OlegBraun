@@ -3,7 +3,6 @@ package hw4.pageObjects;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import com.codeborne.selenide.WebDriverRunner;
-import cucumber.api.java.en.Then;
 import hw3.enums.BenefitTexts;
 import hw3.enums.HomePageData;
 import hw3.enums.User;
@@ -17,7 +16,6 @@ import java.util.stream.Collectors;
 
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.page;
-import static hw3.enums.HomePageData.INDEX_HTML_URL;
 import static org.testng.Assert.*;
 
 public class SelenideIndexPage {

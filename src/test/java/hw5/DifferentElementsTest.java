@@ -14,7 +14,6 @@ import org.testng.annotations.Test;
 
 import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.Selenide.page;
-import static com.codeborne.selenide.Selenide.sleep;
 import static hw3.enums.HomePageData.HOME_PAGE_TITLE;
 import static hw3.enums.HomePageData.INDEX_HTML_URL;
 import static hw3.enums.User.PITER_CHAILOVSKII;

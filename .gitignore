@@ -26,3 +26,8 @@ editor.codeinsight.xml
 .allure
 ide.general.xml
 code.style.schemes.xml
+debugger.renderers.xml
+intentionSettings.xml
+lombok-plugin.xml
+toStringTemplates.xml
+abbreviations.xml

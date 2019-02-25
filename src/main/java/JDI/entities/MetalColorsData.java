@@ -15,6 +15,7 @@ import static JDI.enums.Vegetables.TOMATO;
 import static hw4.enums.Metals.SELEN;
 
 @AllArgsConstructor
+@Getter
 public class MetalColorsData extends DataClass<MetalColorsData> {
 
     private int[] summary;
@@ -22,22 +23,6 @@ public class MetalColorsData extends DataClass<MetalColorsData> {
     private String color;
     private String metal;
     private String[] vegetables;
-
-    public String[] getElements() {
-        return elements;
-    }
-
-    public String getColor() {
-        return color;
-    }
-
-    public String getMetal() {
-        return metal;
-    }
-
-    public String[] getVegetables() {
-        return vegetables;
-    }
 
     public static MetalColorsData DEFAULT_DATA = new MetalColorsData(
             new int[]{THREE.digit, EIGTH.digit},
@@ -47,10 +32,10 @@ public class MetalColorsData extends DataClass<MetalColorsData> {
             new String[]{CUCUMBER.value, TOMATO.value});
 
     public String getOddsRadioButton() {
-        return  String.valueOf(summary[0]);
+        return String.valueOf(summary[0]);
     }
 
     public String getEvenRadioButton() {
-        return  String.valueOf(summary[1]);
+        return String.valueOf(summary[1]);
     }
 }

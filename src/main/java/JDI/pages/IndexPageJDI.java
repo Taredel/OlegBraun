@@ -10,9 +10,11 @@ import com.epam.jdi.light.ui.html.complex.Menu;
 import org.openqa.selenium.support.FindBy;
 
 
-@Url("/index.html") @Title("Home Page")
+@Url("/index.html")
+@Title("Home Page")
 public class IndexPageJDI extends WebPage {
-    LoginForm loginForm;
+
+    private LoginForm loginForm;
 
     @FindBy(css = "[id='user-icon']")
     private Icon loginIcon;

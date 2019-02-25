@@ -37,7 +37,10 @@ public class MetalsColorsSubmitTest {
         //3 open Metals & Colors page
         headerSection.select(METALS_COLORS);
 
-        //4 fill form Metals & Colors by Default Data
+        //4 fill and submit form Metals & Colors by Default Data
         metalsColorsPage.setNewData(DEFAULT_DATA);
+
+        //5 check submit log for proper values
+        metalsColorsPage.checkLog(DEFAULT_DATA);
     }
 }

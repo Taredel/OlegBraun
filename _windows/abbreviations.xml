@@ -1,9 +1,0 @@
-<application>
-  <component name="AbbreviationManager">
-    <abbreviations>
-      <action id="EditCustomProperties">
-        <abbreviation name="idea.max.intellisense.filesize=4096" />
-      </action>
-    </abbreviations>
-  </component>
-</application>

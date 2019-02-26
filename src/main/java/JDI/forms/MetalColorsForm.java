@@ -38,9 +38,6 @@ public class MetalColorsForm extends Form<MetalColorsData> {
             list = "li", expand = ".caret")
     private Droplist colors;
 
-    @Css("[title='Colors']")
-    private Icon openColor;
-
     @Css(".metals [type='text']")
     private TextField metals;
 
@@ -54,13 +51,11 @@ public class MetalColorsForm extends Form<MetalColorsData> {
     public void submitData(MetalColorsData data) {
         oddsRadiobutton.select(data.getOddsRadioButton());
         evenRadiobutton.select(data.getEvenRadioButton());
-
         for (WebElement webElement : elements) {
             for (String element : data.getElements()) {
                 if (webElement.getText().contains(element)) webElement.click();
             }
         }
-
         colors.select(data.getColor());
         metals.setValue(data.getMetal());
         vegetables.select(DEFAULT_VEGETABLES);

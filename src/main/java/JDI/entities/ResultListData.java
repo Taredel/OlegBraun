@@ -12,7 +12,7 @@ public class ResultListData {
         return new String[]{getLog("Summary: ", resultCalculation),
                 getLog("Elements: ", data.getElements()),
                 getLog("Color: ", data.getColor()),
-                getLog("Metal: ", data.getMetal()),
+                getLog("Metal: ", data.getMetals()),
                 getLog("Vegetables: ", data.getVegetables())
         };
     }

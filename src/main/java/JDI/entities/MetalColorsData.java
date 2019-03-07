@@ -14,14 +14,14 @@ import static JDI.enums.Vegetables.CUCUMBER;
 import static JDI.enums.Vegetables.TOMATO;
 import static hw4.enums.Metals.SELEN;
 
-@AllArgsConstructor
 @Getter
+@AllArgsConstructor
 public class MetalColorsData extends DataClass<MetalColorsData> {
 
     private int[] summary;
     private String[] elements;
     private String color;
-    private String metal;
+    private String metals;
     private String[] vegetables;
 
     public static MetalColorsData DEFAULT_DATA = new MetalColorsData(

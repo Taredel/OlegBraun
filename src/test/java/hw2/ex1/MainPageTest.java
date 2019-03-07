@@ -10,7 +10,7 @@ import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
 /**
- * This class is testing web page with URL "https://epam.github.io/JDI/" using @DataProvider with parallel settings.
+ * This class is testing web page with URL "https://epam.github.io/JDI/" using @dataProviders with parallel settings.
  *
  * @author Oleg Braun
  * @version 1.2 29 Jan 2019

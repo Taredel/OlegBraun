@@ -7,7 +7,6 @@ import com.epam.jdi.light.driver.WebDriverFactory;
 import com.epam.jdi.light.ui.html.PageFactory;
 import org.testng.annotations.*;
 
-import java.util.Map;
 
 import static JDI.JDISite.indexPageJDI;
 import static JDI.JDISite.metalsColorsPage;

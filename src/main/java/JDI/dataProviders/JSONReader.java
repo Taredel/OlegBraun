@@ -9,6 +9,7 @@ import org.testng.annotations.DataProvider;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
+import java.lang.reflect.Type;
 import java.util.Map;
 
 public class JSONReader {
@@ -18,8 +19,8 @@ public class JSONReader {
         Map<String, MetalColorsData> map = null;
         try (Reader reader = new FileReader("src\\main\\resources\\JDI_ex8_metalsColorsDataSet.json")) {
             Gson gson = new GsonBuilder().create();
-            map = gson.fromJson(reader, new TypeToken<Map<String, MetalColorsData>>() {
-            }.getType());
+            Type type = new TypeToken<Map<String, MetalColorsData>>() {}.getType();
+            map = gson.fromJson(reader, type);
         } catch (IOException e) {
             e.printStackTrace();
         }

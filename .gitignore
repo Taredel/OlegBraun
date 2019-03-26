@@ -31,3 +31,4 @@ intentionSettings.xml
 lombok-plugin.xml
 toStringTemplates.xml
 abbreviations.xml
+baseRefactoring.xml
